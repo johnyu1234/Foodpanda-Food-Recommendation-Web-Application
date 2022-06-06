@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />        
+        <title >what</title>
+    </head>
+    <style>
+
+            input[type="submit"]{
+                background: #f78914; 
+                size-adjust: 200px; 
+                font-family:oblique; 
+                font-size: 10px; 
+                margin: auto; 
+                padding-left: 60px; 
+                padding-right: 60px;
+                padding-top: 20px;
+                padding-bottom: 20px; 
+                border-radius: 10px; 
+                border-color: transparent; 
+                color: white }
+            
+    
+        .demo {
+            padding-top: 50px;
+            text-align: center
+            }
+        h3 {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.45);
+            text-align: center;
+        
+
+        }
+        button{background-color:#92CD28;
+                width:300px;
+                height:300px;
+                border-color: transparent;        
+            }
+        
+    </style>
+    <body  bgcolor="#92CD28">
+        <center>
+        <h3 style="font-size: 40px;color:white">where are you?</h3>
+        <!input type="button" onclick="getLocation()" style="border-color: transparent; background-color:transparent;width:512px;height:512px;cursor:pointer;background-image:url('https://cdn.icon-icons.com/icons2/426/PNG/512/Map_1135px_1195280_42272.png')">
+        <button name="right_button" type="submit" onclick="getLocation()">
+            <img src="https://cdn.icon-icons.com/icons2/426/PNG/512/Map_1135px_1195280_42272.png" width="200" height="200" >
+        </button> 
+        <div class="demo">
+            <a href="foodtype.html">
+             <form action="/location" method="post">        
+            <input type="submit" name ="hi" id="demo3"value="NEXT">
+            </a>
+            </form>   
+        </div>
+
+    </center>
+    <script>
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        function showPosition(position) {
+            x.name =  + position.coords.latitude +
+          "," + position.coords.longitude;
+        }
+        var x = document.getElementById("demo3");
+
+        </script>
+        
+    </body>
+
+
+</html>
+

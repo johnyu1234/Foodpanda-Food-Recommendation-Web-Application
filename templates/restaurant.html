@@ -1,0 +1,85 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+        <title>推薦餐廳資訊</title>
+    </head>
+    <style>
+
+      h3 {
+          width: 100%;
+          background-color: rgba(255, 255, 255, 0.45);
+          text-align: center;
+
+
+
+      }
+      /*div{
+          display: inline-block;
+          text-align: center;
+
+          vertical-align : middle;
+          padding-left: 15%;
+          margin:10px;
+          
+      
+      }*/
+      div{
+          border: transparent;
+          padding:1px;
+          margin:1px;
+          display:inline-block;
+          background-color: transparent; 
+
+              
+          }
+      span{
+          border-radius: 5px;
+          background-color: #f78914;
+          padding: 3pt; 
+          font-size: 10px; 
+          color: white;
+
+          }
+      button{
+          background-color:#92CD28;
+          width:600px;
+          height:300px;
+          border: transparent;
+          cursor: pointer;
+          font-size: 100px;
+      }
+      p{
+        font-size: 10px;
+        color: white;
+      }
+          
+      
+    </style>
+    <body  bgcolor="#92CD28">
+        <center>
+        <h3 style="font-size: 40px;color:white">Recommendation</h3>
+        {% for name in names %}
+
+        <div class="row">
+            <div class="column">
+        <form action="/restaurant" method="post">  
+        <button type="submit" name={{name}} value={{loop.index0}}>
+        <img src={{links[loop.index0]}} width="400" height="300">
+        </button>
+        </form>
+            </div>
+        </div>
+        <h3>{{name}}</h3>
+        <p>
+        {% if promo[loop.index0] != "" %}
+        <h3>優惠活動: {{promo[loop.index0]}} </h3>
+        {% else %}
+        <h3>目前沒有優惠 </h3>
+        {% endif %}
+           <h3> {{rating[loop.index0]}} </h3>
+          <hr>
+          </p>
+        {% endfor %}
+      </center> 
+    </body>
+</html>
